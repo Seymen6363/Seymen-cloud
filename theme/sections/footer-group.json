@@ -1,0 +1,13 @@
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": { "m1": { "type": "menu", "settings": { "title": "Infos", "menu": "footer" } } },
+      "block_order": ["m1"],
+      "settings": {}
+    }
+  },
+  "order": ["footer"]
+}

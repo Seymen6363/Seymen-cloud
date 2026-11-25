@@ -1,0 +1,64 @@
+{%- liquid
+  assign menu = section.settings.menu
+  assign transparent = false
+  if section.settings.transparent_home and request.page_type == 'index'
+    assign transparent = true
+  endif
+-%}
+{%- if section.settings.announcement != blank -%}
+  <div class="moe-announce">{{ section.settings.announcement }}</div>
+{%- endif -%}
+<header class="moe moe-header{% if transparent %} moe-header--transparent{% endif %}" data-moe-header>
+  <div class="moe-wrap moe-header__inner">
+    <button class="moe-header__burger" type="button" aria-label="Menü öffnen" aria-expanded="false" data-moe-menu-toggle>
+      <span></span><span></span>
+    </button>
+
+    <a class="moe-header__logo" href="{{ routes.root_url }}">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 400 | image_tag: alt: shop.name, style: 'max-height: 40px; width: auto;' }}
+      {%- else -%}
+        {{ shop.name }}
+      {%- endif -%}
+    </a>
+
+    <nav class="moe-header__nav" aria-label="Hauptmenü" data-moe-menu>
+      {%- if menu != blank -%}
+        {%- for link in menu.links -%}
+          <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="{{ routes.all_products_collection_url }}">Shop</a>
+        <a href="{{ routes.collections_url }}">Kollektionen</a>
+      {%- endif -%}
+    </nav>
+
+    <div class="moe-header__icons">
+      <a href="{{ routes.search_url }}" aria-label="Suche">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </a>
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" aria-label="Konto">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+        </a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="moe-header__cart" aria-label="Warenkorb">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="moe-header__count" data-moe-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "moe-header-section",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "link_list", "id": "menu", "label": "Menü", "default": "main-menu" },
+    { "type": "text", "id": "announcement", "label": "Ankündigungsleiste", "default": "Kostenloser Versand ab 30 € · Handgemacht in kleinen Chargen" },
+    { "type": "checkbox", "id": "transparent_home", "label": "Transparent über dem Startseiten-Hero", "default": true }
+  ]
+}
+{% endschema %}

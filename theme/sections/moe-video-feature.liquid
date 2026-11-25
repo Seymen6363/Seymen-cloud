@@ -1,5 +1,3 @@
-{{ 'moe-shop.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'moe-shop.js' | asset_url }}" defer></script>
 
 <section class="moe moe-feature{% if section.settings.flip %} moe-feature--flip{% endif %}" id="{{ section.settings.anchor | default: section.id }}" style="--moe-bg: {{ section.settings.bg }};">
   <div class="moe-wrap moe-feature__grid">

@@ -1,0 +1,17 @@
+<article class="moe moe-page moe-page-top">
+  <div class="moe-wrap moe-narrow">
+    <span class="moe-eyebrow">{{ article.published_at | date: '%d.%m.%Y' }}</span>
+    <h1 class="moe-h2">{{ article.title }}</h1>
+    {%- if article.image -%}
+      <div class="moe-article__img">
+        {{ article.image | image_url: width: 1600 | image_tag: sizes: '(min-width: 900px) 820px, 100vw', widths: '600, 1000, 1600', alt: article.title }}
+      </div>
+    {%- endif -%}
+    <div class="rte">{{ article.content }}</div>
+    <p><a href="{{ blog.url }}">← Zurück zu {{ blog.title }}</a></p>
+  </div>
+</article>
+
+{% schema %}
+{ "name": "Blogbeitrag", "settings": [] }
+{% endschema %}

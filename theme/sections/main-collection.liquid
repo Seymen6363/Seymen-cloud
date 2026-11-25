@@ -1,0 +1,43 @@
+{%- paginate collection.products by section.settings.per_page -%}
+<section class="moe moe-products moe-page-top">
+  <div class="moe-wrap">
+    <div class="moe-center">
+      <span class="moe-eyebrow">Kollektion</span>
+      <h1 class="moe-h2">{{ collection.title }}</h1>
+      {%- if collection.description != blank -%}<div class="moe-lead rte">{{ collection.description }}</div>{%- endif -%}
+    </div>
+
+    {%- if collection.sort_options.size > 0 -%}
+      <form class="moe-sort" method="get">
+        <label for="SortBy">Sortieren</label>
+        <select class="moe-input" id="SortBy" name="sort_by" onchange="this.form.submit()">
+          {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+          {%- for option in collection.sort_options -%}
+            <option value="{{ option.value }}"{% if option.value == sort_by %} selected{% endif %}>{{ option.name }}</option>
+          {%- endfor -%}
+        </select>
+      </form>
+    {%- endif -%}
+
+    <div class="moe-products__grid">
+      {%- for product in collection.products -%}
+        {% render 'product-card', product: product, index: forloop.index0, show_desc: section.settings.show_desc %}
+      {%- else -%}
+        <p>Diese Kollektion enthält noch keine Produkte.</p>
+      {%- endfor -%}
+    </div>
+
+    {% render 'pagination', paginate: paginate %}
+  </div>
+</section>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Kollektion",
+  "settings": [
+    { "type": "range", "id": "per_page", "label": "Produkte pro Seite", "min": 4, "max": 48, "step": 4, "default": 16 },
+    { "type": "checkbox", "id": "show_desc", "label": "Kurzbeschreibung zeigen", "default": false }
+  ]
+}
+{% endschema %}

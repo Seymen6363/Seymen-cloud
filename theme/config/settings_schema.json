@@ -1,0 +1,24 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Moè Natur",
+    "theme_version": "1.0.0",
+    "theme_author": "Moè",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com"
+  },
+  {
+    "name": "Farben",
+    "settings": [
+      { "type": "color", "id": "color_accent", "label": "Akzentfarbe (Buttons)", "default": "#3f5a46" },
+      { "type": "color", "id": "color_background", "label": "Seitenhintergrund", "default": "#faf7f1" },
+      { "type": "color", "id": "color_text", "label": "Textfarbe", "default": "#1f2420" }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "32 × 32 px" }
+    ]
+  }
+]

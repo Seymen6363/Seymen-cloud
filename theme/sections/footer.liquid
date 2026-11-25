@@ -1,0 +1,41 @@
+<footer class="moe moe-footer">
+  <div class="moe-wrap">
+    <div class="moe-footer__grid">
+      <div>
+        <div class="moe-footer__brand">{{ shop.name }}</div>
+        <div class="moe-footer__text">{{ section.settings.text }}</div>
+      </div>
+      {%- for block in section.blocks -%}
+        <div {{ block.shopify_attributes }}>
+          <div class="moe-footer__title">{{ block.settings.title }}</div>
+          {%- if block.settings.menu != blank -%}
+            <ul>
+              {%- for link in block.settings.menu.links -%}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="moe-footer__bottom">
+      <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}</span>
+      <div class="moe-footer__pay">
+        {%- for type in shop.enabled_payment_types -%}{{ type | payment_type_svg_tag: class: 'moe-pay' }}{%- endfor -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Naturseifen & Mentholstein – handgemacht, plastikfrei verpackt.</p>" }
+  ],
+  "blocks": [
+    { "type": "menu", "name": "Menü", "limit": 3, "settings": [
+      { "type": "text", "id": "title", "label": "Titel", "default": "Infos" },
+      { "type": "link_list", "id": "menu", "label": "Menü", "default": "footer" }
+    ] }
+  ]
+}
+{% endschema %}

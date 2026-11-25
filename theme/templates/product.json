@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "badges": { "type": "badges", "settings": {} },
+        "ingredients": { "type": "collapsible", "settings": { "heading": "Inhaltsstoffe", "content": "<p>Hier die INCI-Liste des Produkts eintragen.</p>" } },
+        "usage": { "type": "collapsible", "settings": { "heading": "Anwendung", "content": "<p>Hier die Anwendung beschreiben.</p>" } }
+      },
+      "block_order": ["badges", "ingredients", "usage"],
+      "settings": {}
+    },
+    "related": { "type": "moe-products", "settings": { "eyebrow": "Passt dazu", "heading": "Das könnte dir auch gefallen", "limit": 4, "show_desc": false } }
+  },
+  "order": ["main", "related"]
+}

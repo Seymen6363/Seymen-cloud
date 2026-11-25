@@ -1,0 +1,10 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_accent": "#3f5a46",
+      "color_background": "#faf7f1",
+      "color_text": "#1f2420"
+    }
+  }
+}

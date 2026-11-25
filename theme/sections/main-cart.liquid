@@ -1,0 +1,62 @@
+<section class="moe moe-cart moe-page-top">
+  <div class="moe-wrap">
+    <h1 class="moe-h2">Warenkorb</h1>
+
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" class="moe-cart__form">
+        <div class="moe-cart__items">
+          {%- for item in cart.items -%}
+            <div class="moe-cart__item">
+              <a href="{{ item.url }}" class="moe-cart__img">
+                {%- if item.image -%}
+                  {{ item.image | image_url: width: 240 | image_tag: loading: 'lazy', alt: item.title, width: 120, height: 120 }}
+                {%- endif -%}
+              </a>
+              <div class="moe-cart__meta">
+                <a href="{{ item.url }}" class="moe-cart__title">{{ item.product.title }}</a>
+                {%- unless item.product.has_only_default_variant -%}<div class="moe-cart__variant">{{ item.variant.title }}</div>{%- endunless -%}
+                <div>{{ item.final_price | money }}</div>
+                {%- for discount in item.line_level_discount_allocations -%}
+                  <div class="moe-cart__variant">{{ discount.discount_application.title }} (−{{ discount.amount | money }})</div>
+                {%- endfor -%}
+              </div>
+              <div class="moe-cart__qty">
+                <label class="moe-visually-hidden" for="Qty-{{ item.key }}">Menge</label>
+                <input class="moe-input moe-qty" id="Qty-{{ item.key }}" type="number" name="updates[]" value="{{ item.quantity }}" min="0" onchange="this.form.submit()">
+                <a href="{{ item.url_to_remove }}" class="moe-cart__remove">Entfernen</a>
+              </div>
+              <div class="moe-cart__line">{{ item.final_line_price | money }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <aside class="moe-cart__summary">
+          {%- if section.settings.show_note -%}
+            <label class="moe-label" for="CartNote">Anmerkung zur Bestellung</label>
+            <textarea class="moe-input" id="CartNote" name="note" rows="3">{{ cart.note }}</textarea>
+          {%- endif -%}
+          {%- for discount in cart.cart_level_discount_applications -%}
+            <div class="moe-cart__row"><span>{{ discount.title }}</span><span>−{{ discount.total_allocated_amount | money }}</span></div>
+          {%- endfor -%}
+          <div class="moe-cart__row moe-cart__total"><span>Zwischensumme</span><strong>{{ cart.total_price | money_with_currency }}</strong></div>
+          <p class="moe-cart__hint">{% if cart.taxes_included %}inkl. MwSt.{% else %}zzgl. MwSt.{% endif %}, Versand wird im Checkout berechnet.</p>
+          <button class="moe-btn moe-btn--block" type="submit" name="checkout">Zur Kasse</button>
+          {%- if additional_checkout_buttons -%}<div class="moe-cart__extra">{{ content_for_additional_checkout_buttons }}</div>{%- endif -%}
+          <button class="moe-cart__update" type="submit" name="update">Warenkorb aktualisieren</button>
+        </aside>
+      </form>
+    {%- else -%}
+      <div class="moe-center moe-empty">
+        <p class="moe-lead">Dein Warenkorb ist leer.</p>
+        <a class="moe-btn" href="{{ routes.all_products_collection_url }}">Weiter einkaufen</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Warenkorb",
+  "settings": [ { "type": "checkbox", "id": "show_note", "label": "Bestellnotiz erlauben", "default": false } ]
+}
+{% endschema %}
