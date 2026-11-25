@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "hero": { "type": "moe-hero", "blocks": {
+      "b1": { "type": "badge", "settings": { "text": "Kostenloser Versand ab 30 €" } },
+      "b2": { "type": "badge", "settings": { "text": "Kaltgerührt in kleinen Chargen" } },
+      "b3": { "type": "badge", "settings": { "text": "Vegan & plastikfrei" } }
+    }, "block_order": ["b1", "b2", "b3"], "settings": { "btn1_link": "#shop", "btn2_link": "#mentholstein" } },
+    "benefits": { "type": "moe-benefits", "blocks": {
+      "v1": { "type": "benefit", "settings": { "icon": "🌿", "title": "100 % natürlich", "text": "Pflanzliche Öle, Tonerde und reine ätherische Öle – nichts Künstliches." } },
+      "v2": { "type": "benefit", "settings": { "icon": "🫧", "title": "Tonerde-Detox", "text": "Mineralreiche Tonerde bindet überschüssigen Talg und klärt die Poren sanft." } },
+      "v3": { "type": "benefit", "settings": { "icon": "❄️", "title": "Menthol-Frische", "text": "Der Mentholstein kühlt Nacken & Schläfen und schenkt sofortige Entspannung." } },
+      "v4": { "type": "benefit", "settings": { "icon": "♻️", "title": "Plastikfrei verpackt", "text": "Recyclingpapier, kompostierbar und klimaneutral versendet." } }
+    }, "block_order": ["v1", "v2", "v3", "v4"], "settings": {} },
+    "products": { "type": "moe-products", "settings": {} },
+    "soap_story": { "type": "moe-video-feature", "blocks": {
+      "p1": { "type": "point", "settings": { "text": "Mineralreiche Tonerde klärt Poren" } },
+      "p2": { "type": "point", "settings": { "text": "Mit Sheabutter & Olivenöl – trocknet nicht aus" } },
+      "p3": { "type": "point", "settings": { "text": "Für Gesicht, Körper & Haar" } }
+    }, "block_order": ["p1", "p2", "p3"], "settings": {
+      "flip": true, "bg": "#f1e9dc", "anchor": "tonerde",
+      "eyebrow": "Tonerde Naturseife", "heading": "Ausgleichend. Reinigend. Echt.",
+      "text": "<p>Unsere Tonerde-Seife wird kaltgerührt und reift wochenlang. Das Ergebnis: ein cremiger Schaum, der anspruchsvolle Haut klärt, ohne sie zu strapazieren.</p>"
+    } },
+    "menthol": { "type": "moe-video-feature", "blocks": {
+      "m1": { "type": "point", "settings": { "text": "Sofort kühlend bei Verspannungen & Kopfdruck" } },
+      "m2": { "type": "point", "settings": { "text": "Reine Mentholkristalle, ohne Zusätze" } },
+      "m3": { "type": "point", "settings": { "text": "Handlich für Tasche, Büro & Reise" } }
+    }, "block_order": ["m1", "m2", "m3"], "settings": {} },
+    "reviews": { "type": "moe-reviews", "blocks": {
+      "r1": { "type": "review", "settings": { "quote": "Ersetze diesen Text durch eine echte Kundenbewertung.", "name": "Name, verifizierter Kauf" } },
+      "r2": { "type": "review", "settings": { "quote": "Ersetze diesen Text durch eine echte Kundenbewertung.", "name": "Name, verifizierter Kauf" } },
+      "r3": { "type": "review", "settings": { "quote": "Ersetze diesen Text durch eine echte Kundenbewertung.", "name": "Name, verifizierter Kauf" } }
+    }, "block_order": ["r1", "r2", "r3"], "settings": {} },
+    "faq": { "type": "moe-faq", "blocks": {
+      "f1": { "type": "faq", "settings": { "q": "Für welchen Hauttyp ist die Tonerde-Seife geeignet?", "a": "<p>Besonders für Mischhaut und fettige Haut. Die Tonerde reinigt klärend, die pflanzlichen Öle sorgen dafür, dass die Haut nicht austrocknet.</p>" } },
+      "f2": { "type": "faq", "settings": { "q": "Wie wende ich den Mentholstein an?", "a": "<p>Direkt über Nacken, Schläfen oder Stirn streichen. Nicht in der Nähe der Augen und nicht auf verletzter Haut anwenden.</p>" } },
+      "f3": { "type": "faq", "settings": { "q": "Wie lange hält ein Stück Seife?", "a": "<p>Auf einer gut abtropfenden Seifenschale bei täglicher Nutzung etwa 4–6 Wochen.</p>" } }
+    }, "block_order": ["f1", "f2", "f3"], "settings": {} }
+  },
+  "order": ["hero", "benefits", "products", "soap_story", "menthol", "reviews", "faq"]
+}

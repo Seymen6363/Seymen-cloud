@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moè Naturshop – Vorschau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shopify/assets/moe-shop.css">
+<style>
+  body { margin: 0; font-family: Manrope, system-ui, sans-serif; background: #f6f1e8; }
+  .demo-nav { position: absolute; z-index: 5; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; color: #fff; }
+  .demo-nav b { font-size: 22px; letter-spacing: .04em; }
+  .demo-nav nav { display: flex; gap: 24px; font-size: 14px; }
+  .demo-nav a { color: inherit; text-decoration: none; opacity: .9; }
+  @media (max-width: 640px) { .demo-nav nav a:not(:last-child) { display: none; } }
+  .art { position: absolute; inset: 0; }
+  .hero-art { background: radial-gradient(120% 80% at 75% 35%, #6f8a76 0%, #2c3d31 55%, #18211b 100%); }
+  .hero-art svg { position: absolute; right: 3%; top: 14%; width: min(44vw, 640px); height: auto; filter: drop-shadow(0 40px 60px rgba(0,0,0,.45)); animation: float 7s ease-in-out infinite; }
+  @media (max-width: 760px) { .hero-art svg { width: 88vw; right: -6vw; top: 6%; opacity: .55; } }
+  @keyframes float { 50% { transform: translateY(-14px) rotate(-1.5deg); } }
+  .feat-art { display: grid; place-items: center; height: 100%; }
+  .feat-art svg { width: 70%; animation: float 6s ease-in-out infinite; }
+  .soap-bg { background: radial-gradient(circle at 50% 40%, #fbf7f0, #e2d6c2); }
+  .menthol-bg { background: radial-gradient(circle at 50% 40%, #f4fbf8, #b9ddd0); }
+  .note { background: #1f2420; color: #fff; text-align: center; padding: 12px 16px; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="note">Vorschau mit Platzhalter-Grafiken – im Shop werden hier deine GPT-Image-Bilder und Seedance-Videos angezeigt.</div>
+
+<!-- Symbole: Seife & Mentholstein -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="clay" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9b3a2"/><stop offset=".55" stop-color="#8f9384"/><stop offset="1" stop-color="#6b7062"/></linearGradient>
+    <linearGradient id="claytop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfc9b8"/><stop offset="1" stop-color="#a5a594"/></linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#e3f4ee"/><stop offset="1" stop-color="#a9d4c5"/></linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2f4a3a"/><stop offset=".5" stop-color="#4d6d59"/><stop offset="1" stop-color="#2a4133"/></linearGradient>
+    <symbol id="soap" viewBox="0 0 400 260">
+      <ellipse cx="200" cy="228" rx="170" ry="22" fill="rgba(0,0,0,.18)"/>
+      <path d="M40 120 Q40 70 100 64 L300 64 Q360 70 360 120 L360 170 Q360 214 300 218 L100 218 Q40 214 40 170 Z" fill="url(#clay)"/>
+      <path d="M52 112 Q54 78 104 74 L296 74 Q346 78 348 112 Q346 146 296 150 L104 150 Q54 146 52 112 Z" fill="url(#claytop)"/>
+      <text x="200" y="124" text-anchor="middle" font-family="Georgia, serif" font-size="38" fill="#7b7c6c" opacity=".8">Moè</text>
+      <g fill="#fff" opacity=".35"><circle cx="110" cy="98" r="2"/><circle cx="260" cy="132" r="1.6"/><circle cx="300" cy="96" r="2.2"/><circle cx="160" cy="138" r="1.4"/></g>
+    </symbol>
+    <symbol id="stone" viewBox="0 0 200 400">
+      <ellipse cx="100" cy="380" rx="64" ry="12" fill="rgba(0,0,0,.18)"/>
+      <rect x="58" y="40" width="84" height="190" rx="40" fill="url(#mint)"/>
+      <g fill="#fff" opacity=".7"><path d="M78 70 l10 30 -14 20z"/><path d="M112 90 l12 26 -18 8z"/><path d="M90 150 l14 20 -20 14z"/></g>
+      <rect x="54" y="210" width="92" height="160" rx="14" fill="url(#cap)"/>
+      <text x="100" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#d9eee6">Moè</text>
+    </symbol>
+  </defs>
+</svg>
+
+<section class="moe moe-hero">
+  <div class="art hero-art">
+    <svg viewBox="0 0 640 420"><use href="#soap" x="0" y="120" width="420" height="270"/><use href="#stone" x="420" y="20" width="200" height="400"/></svg>
+  </div>
+  <div class="moe-hero__shade" style="opacity:.75"></div>
+  <header class="demo-nav"><b>Moè</b><nav><a href="#shop">Shop</a><a href="#tonerde">Seifen</a><a href="#mentholstein">Mentholstein</a><a href="#">Warenkorb (0)</a></nav></header>
+  <div class="moe-wrap moe-hero__inner">
+    <span class="moe-eyebrow moe-reveal">Handgemacht · Vegan · Plastikfrei</span>
+    <h1 class="moe-h moe-reveal">Pure Natur<br>für deine Haut.</h1>
+    <div class="moe-lead moe-reveal"><p>Naturseifen mit Tonerde & ätherischen Ölen und der kühlende Mentholstein – sanft gereinigt, tief entspannt.</p></div>
+    <div class="moe-hero__ctas moe-reveal"><a class="moe-btn" href="#shop">Jetzt entdecken →</a><a class="moe-btn moe-btn--ghost" href="#mentholstein">Mentholstein ansehen</a></div>
+    <div class="moe-hero__badges moe-reveal"><span>Kostenloser Versand ab 30 €</span><span>Kaltgerührt in kleinen Chargen</span><span>Vegan & plastikfrei</span></div>
+  </div>
+</section>
+
+<section class="moe moe-benefits">
+  <div class="moe-wrap">
+    <div class="moe-center">
+      <span class="moe-eyebrow moe-reveal">Warum Moè</span>
+      <h2 class="moe-h2 moe-reveal">Weniger Zusätze. Mehr Natur.</h2>
+      <div class="moe-lead moe-reveal"><p>Jedes Stück wird kaltgerührt, reift mehrere Wochen und kommt ohne Mikroplastik oder synthetische Duftstoffe aus.</p></div>
+    </div>
+    <div class="moe-benefits__grid">
+      <div class="moe-card moe-reveal"><div class="moe-card__icon">🌿</div><h3>100 % natürlich</h3><p>Pflanzliche Öle, Tonerde und reine ätherische Öle – nichts Künstliches.</p></div>
+      <div class="moe-card moe-reveal" style="transition-delay:80ms"><div class="moe-card__icon">🫧</div><h3>Tonerde-Detox</h3><p>Mineralreiche Tonerde bindet überschüssigen Talg und klärt die Poren sanft.</p></div>
+      <div class="moe-card moe-reveal" style="transition-delay:160ms"><div class="moe-card__icon">❄️</div><h3>Menthol-Frische</h3><p>Der Mentholstein kühlt Nacken & Schläfen und schenkt sofortige Entspannung.</p></div>
+      <div class="moe-card moe-reveal" style="transition-delay:240ms"><div class="moe-card__icon">♻️</div><h3>Plastikfrei verpackt</h3><p>Recyclingpapier, kompostierbar und klimaneutral versendet.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="moe moe-products" id="shop">
+  <div class="moe-wrap">
+    <div class="moe-products__head">
+      <div><span class="moe-eyebrow moe-reveal">Bestseller</span><h2 class="moe-h2 moe-reveal">Unsere Naturseifen & der Mentholstein</h2></div>
+      <a class="moe-btn moe-btn--ghost moe-reveal" href="#">Alle Produkte</a>
+    </div>
+    <div class="moe-products__grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="moe moe-feature moe-feature--flip" id="tonerde" style="--moe-bg:#f1e9dc">
+  <div class="moe-wrap moe-feature__grid">
+    <div class="moe-feature__media moe-reveal soap-bg"><div class="feat-art"><svg viewBox="0 0 400 260"><use href="#soap"/></svg></div></div>
+    <div>
+      <span class="moe-eyebrow moe-reveal">Tonerde Naturseife</span>
+      <h2 class="moe-h2 moe-reveal">Ausgleichend. Reinigend. Echt.</h2>
+      <div class="moe-lead moe-reveal"><p>Kaltgerührt und wochenlang gereift: ein cremiger Schaum, der anspruchsvolle Haut klärt, ohne sie zu strapazieren.</p></div>
+      <ul class="moe-feature__list moe-reveal"><li>Mineralreiche Tonerde klärt Poren</li><li>Mit Sheabutter & Olivenöl – trocknet nicht aus</li><li>Für Gesicht, Körper & Haar</li></ul>
+      <a class="moe-btn moe-reveal" href="#">Jetzt kaufen · 8,90 €</a>
+    </div>
+  </div>
+</section>
+
+<section class="moe moe-feature" id="mentholstein">
+  <div class="moe-wrap moe-feature__grid">
+    <div class="moe-feature__media moe-reveal menthol-bg"><div class="feat-art"><svg viewBox="0 0 200 400" style="width:42%"><use href="#stone"/></svg></div></div>
+    <div>
+      <span class="moe-eyebrow moe-reveal">Der Klassiker neu entdeckt</span>
+      <h2 class="moe-h2 moe-reveal">Mentholstein – Frische, die man spürt.</h2>
+      <div class="moe-lead moe-reveal"><p>Reine Mentholkristalle in handlicher Form. Über Nacken, Schläfen oder Stirn streichen – die Kühle wirkt sofort.</p></div>
+      <ul class="moe-feature__list moe-reveal"><li>Sofort kühlend bei Verspannungen</li><li>Reine Mentholkristalle, ohne Zusätze</li><li>Handlich für Tasche, Büro & Reise</li></ul>
+      <a class="moe-btn moe-reveal" href="#">Jetzt kaufen · 9,90 €</a>
+    </div>
+  </div>
+</section>
+
+<section class="moe moe-reviews">
+  <div class="moe-wrap">
+    <span class="moe-eyebrow moe-reveal" style="color:#fff;background:rgba(255,255,255,.12)">Kundenstimmen</span>
+    <h2 class="moe-h2 moe-reveal">Das sagen unsere Kund:innen</h2>
+    <div class="moe-reviews__track">
+      <figure class="moe-review"><div class="moe-review__stars">★★★★★</div><p>„Platz für eine echte Kundenbewertung.“</p><figcaption class="moe-review__who">Name, verifizierter Kauf</figcaption></figure>
+      <figure class="moe-review"><div class="moe-review__stars">★★★★★</div><p>„Platz für eine echte Kundenbewertung.“</p><figcaption class="moe-review__who">Name, verifizierter Kauf</figcaption></figure>
+      <figure class="moe-review"><div class="moe-review__stars">★★★★★</div><p>„Platz für eine echte Kundenbewertung.“</p><figcaption class="moe-review__who">Name, verifizierter Kauf</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="moe moe-faq">
+  <div class="moe-wrap">
+    <div class="moe-center"><span class="moe-eyebrow moe-reveal">FAQ</span><h2 class="moe-h2 moe-reveal">Häufige Fragen</h2></div>
+    <div class="moe-faq__list">
+      <details open><summary>Für welchen Hauttyp ist die Tonerde-Seife geeignet?</summary><div>Besonders für Mischhaut und fettige Haut. Die Tonerde reinigt klärend, die pflanzlichen Öle verhindern das Austrocknen.</div></details>
+      <details><summary>Wie wende ich den Mentholstein an?</summary><div>Direkt über Nacken, Schläfen oder Stirn streichen. Nicht in der Nähe der Augen und nicht auf verletzter Haut anwenden.</div></details>
+      <details><summary>Wie lange hält ein Stück Seife?</summary><div>Auf einer gut abtropfenden Seifenschale bei täglicher Nutzung etwa 4–6 Wochen.</div></details>
+    </div>
+  </div>
+</section>
+
+<script>
+  var products = [
+    ['Tonerde Naturseife', 'Ausgleichend & klärend für Mischhaut', '8,90 €', 'soap', 'Bestseller'],
+    ['Mentholstein', 'Reine Mentholkristalle – kühlt sofort', '9,90 €', 'stone', 'Neu'],
+    ['Naturseife Lavendel', 'Beruhigend, mit Sheabutter', '8,90 €', 'soap', ''],
+    ['Entspannungs-Set', '2 Seifen + Mentholstein', '24,90 €', 'set', 'Sale']
+  ];
+  var g = document.getElementById('grid');
+  products.forEach(function (p, i) {
+    var art = p[3] === 'stone'
+      ? '<svg viewBox="0 0 200 400" style="width:38%"><use href="#stone"/></svg>'
+      : p[3] === 'set'
+      ? '<svg viewBox="0 0 640 420" style="width:86%"><use href="#soap" x="0" y="120" width="420" height="270"/><use href="#stone" x="420" y="20" width="200" height="400"/></svg>'
+      : '<svg viewBox="0 0 400 260" style="width:78%' + (i === 2 ? ';filter:hue-rotate(220deg) saturate(1.4)' : '') + '"><use href="#soap"/></svg>';
+    g.insertAdjacentHTML('beforeend',
+      '<a class="moe-pcard moe-reveal" href="#" style="transition-delay:' + i * 70 + 'ms">' +
+      '<div class="moe-pcard__img ' + (p[3] === 'stone' ? 'menthol-bg' : 'soap-bg') + '" style="display:grid;place-items:center">' + art +
+      (p[4] ? '<span class="moe-pcard__tag">' + p[4] + '</span>' : '') + '</div>' +
+      '<div class="moe-pcard__body"><h3 class="moe-pcard__title">' + p[0] + '</h3><span style="opacity:.7;font-size:14px">' + p[1] + '</span>' +
+      '<div class="moe-pcard__price"><strong>' + p[2] + '</strong></div></div></a>');
+  });
+</script>
+<script src="../shopify/assets/moe-shop.js"></script>
+</body>
+</html>

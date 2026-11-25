@@ -1,0 +1,58 @@
+{{ 'moe-shop.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'moe-shop.js' | asset_url }}" defer></script>
+
+<section class="moe moe-benefits">
+  <div class="moe-wrap">
+    <div class="moe-center">
+      {%- if section.settings.eyebrow != blank -%}<span class="moe-eyebrow moe-reveal">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="moe-h2 moe-reveal">{{ section.settings.heading }}</h2>
+      <div class="moe-lead moe-reveal">{{ section.settings.text }}</div>
+    </div>
+    <div class="moe-benefits__grid">
+      {%- for block in section.blocks -%}
+        <div class="moe-card moe-reveal" style="transition-delay: {{ forloop.index0 | times: 80 }}ms" {{ block.shopify_attributes }}>
+          <div class="moe-card__icon">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 96 | image_tag: width: 28, height: 28, loading: 'lazy' }}
+            {%- else -%}{{ block.settings.icon }}{%- endif -%}
+          </div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Moè Vorteile",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Überzeile", "default": "Warum Moè" },
+    { "type": "text", "id": "heading", "label": "Überschrift", "default": "Weniger Zusätze. Mehr Natur." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Jedes Stück wird kaltgerührt, reift mehrere Wochen und kommt ohne Mikroplastik, Palmöl oder synthetische Duftstoffe aus.</p>" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit", "name": "Vorteil",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Emoji / Icon", "default": "🌿" },
+        { "type": "image_picker", "id": "image", "label": "Oder eigenes Icon-Bild" },
+        { "type": "text", "id": "title", "label": "Titel", "default": "100 % natürlich" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Pflanzliche Öle, Tonerde und reine ätherische Öle." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Moè Vorteile",
+      "blocks": [
+        { "type": "benefit", "settings": { "icon": "🌿", "title": "100 % natürlich", "text": "Pflanzliche Öle, Tonerde und reine ätherische Öle – nichts Künstliches." } },
+        { "type": "benefit", "settings": { "icon": "🫧", "title": "Tonerde-Detox", "text": "Mineralreiche Tonerde bindet überschüssigen Talg und klärt die Poren sanft." } },
+        { "type": "benefit", "settings": { "icon": "❄️", "title": "Menthol-Frische", "text": "Der Mentholstein kühlt Nacken & Schläfen und schenkt sofortige Entspannung." } },
+        { "type": "benefit", "settings": { "icon": "♻️", "title": "Plastikfrei verpackt", "text": "Recyclingpapier, kompostierbar und klimaneutral versendet." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
