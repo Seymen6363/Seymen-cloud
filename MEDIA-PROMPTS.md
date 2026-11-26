@@ -23,6 +23,8 @@ Einheitlicher Look (an jeden Prompt anhängen):
 
 ## Seedance 2.0 – Videos
 
+**Ausführliche Shot-by-Shot-Prompts (empfohlen): [`SEEDANCE-PROMPTS.md`](SEEDANCE-PROMPTS.md).** Die Kurzfassungen unten sind nur eine Übersicht.
+
 Einstellungen: 1080p, 5–8 Sek., ohne Ton, **Referenzbild = Produktfoto**, Kamera ruhig. Für Loops: „seamless loop“ ergänzen.
 
 | Datei | Wo im Shop | Format | Prompt |
